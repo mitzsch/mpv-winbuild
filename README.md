@@ -1,6 +1,7 @@
 # mpv-winbuild
 
-[![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/mitzsch/mpv-winbuild/mpv.yml?branch=main)](https://github.com/mitzsch/mpv-winbuild/actions)
+[![GitHub Workflow Status - Old TrueHD](https://img.shields.io/github/actions/workflow/status/mitzsch/mpv-winbuild/mpv_2.yml?branch=main)](https://github.com/mitzsch/mpv-winbuild/actions)
+[![GitHub Workflow Status - New TrueHD](https://img.shields.io/github/actions/workflow/status/mitzsch/mpv-winbuild/mpv_3.yml?branch=main)](https://github.com/mitzsch/mpv-winbuild/actions)
 [![releases](https://img.shields.io/github/v/release/mitzsch/mpv-winbuild)](https://github.com/mitzsch/mpv-winbuild/releases/latest)
 [![downloads](https://img.shields.io/github/downloads/mitzsch/mpv-winbuild/total)](https://github.com/mitzsch/mpv-winbuild/releases)
 
