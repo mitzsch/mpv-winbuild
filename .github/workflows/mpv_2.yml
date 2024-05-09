@@ -1,4 +1,4 @@
-name: MPV
+name: MPV_MPV_PLEX_NTRUEHD
 run-name: "${{ inputs.run_name != '' && format('{0} ({1})', inputs.run_name, inputs.compiler) || inputs.prs != '' && format('{0}[{2}] ({1})', github.workflow, inputs.compiler, inputs.prs) || format('{0} ({1})', github.workflow, inputs.compiler) }}"
 
 on: 
