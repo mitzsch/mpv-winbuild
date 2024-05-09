@@ -1,4 +1,4 @@
-name: MPV_MPV_PLEX_NTRUEHD
+name: mpv_plex_ntruehd
 run-name: "${{ inputs.run_name != '' && format('{0} ({1})', inputs.run_name, inputs.compiler) || inputs.prs != '' && format('{0}[{2}] ({1})', github.workflow, inputs.compiler, inputs.prs) || format('{0} ({1})', github.workflow, inputs.compiler) }}"
 
 on: 
@@ -384,7 +384,7 @@ jobs:
         id: build
         shell: bash
         run: |
-          chmod +x build.sh
+          chmod +x build_2.sh
           cd mpv-winbuild-cmake
           if [[ "$(ls -A ../patch/*.patch)" ]]; then
             for patch in ../patch/*.patch ; do
