@@ -649,8 +649,8 @@ jobs:
           script: |
             const sha = `${{ needs.params.outputs.sha }}`;
             let note = `**This is mpv with the old trueHD logic**\n`;
-            note+="**FFmpeg Git commit**: https://github.com/mitzsch/FFmpeg/commit/master-2/${sha}\n";
-            note+="**MPV Git commit**: https://github.com/mitzsch/mpv/commit/plex-htpc-patches/${sha}\n";
+            note+="**FFmpeg Git commit**: https://github.com/mitzsch/FFmpeg/commit/master-2/${{sha}}\n";
+            note+="**MPV Git commit**: https://github.com/mitzsch/mpv/commit/plex-htpc-patches/${{sha}}\n";
             note+="**Build Time**: ${{ env.long_time }}\n";
             note+="**Compiler**: ${{ inputs.compiler }}\n";
             note+="**Build Details**: https://github.com/${{github.repository}}/actions/runs/${{github.run_id}}\n";
