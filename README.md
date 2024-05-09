@@ -1,12 +1,15 @@
 # mpv-winbuild
 
-[![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/zhongfly/mpv-winbuild/mpv.yml?branch=main)](https://github.com/zhongfly/mpv-winbuild/actions)
-[![releases](https://img.shields.io/github/v/release/zhongfly/mpv-winbuild)](https://github.com/zhongfly/mpv-winbuild/releases/latest)
-[![downloads](https://img.shields.io/github/downloads/zhongfly/mpv-winbuild/total)](https://github.com/zhongfly/mpv-winbuild/releases)
+[![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/mitzsch/mpv-winbuild/mpv.yml?branch=main)](https://github.com/mitzsch/mpv-winbuild/actions)
+[![releases](https://img.shields.io/github/v/release/mitzsch/mpv-winbuild)](https://github.com/mitzsch/mpv-winbuild/releases/latest)
+[![downloads](https://img.shields.io/github/downloads/mitzsch/mpv-winbuild/total)](https://github.com/mitzsch/mpv-winbuild/releases)
 
 Use Github Action to build mpv for Windows with latest commit.
 
-Based on <https://github.com/shinchiro/mpv-winbuild-cmake>.
+This is a fork of <https://github.com/zhongfly/mpv-winbuild>.
+
+Originally based on <https://github.com/shinchiro/mpv-winbuild-cmake>.
+Adapted to <https://github.com/mitzsch/mpv-winbuild-cmake>.
 
 ## Auto-Builds
 
