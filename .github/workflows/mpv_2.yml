@@ -1,4 +1,4 @@
-name: mpv_plex_ntruehd
+name: mpv_plex_otruehd
 run-name: "${{ inputs.run_name != '' && format('{0} ({1})', inputs.run_name, inputs.compiler) || inputs.prs != '' && format('{0}[{2}] ({1})', github.workflow, inputs.compiler, inputs.prs) || format('{0} ({1})', github.workflow, inputs.compiler) }}"
 
 on: 
@@ -648,7 +648,8 @@ jobs:
         with:
           script: |
             const sha = `${{ needs.params.outputs.sha }}`;
-            let note = `**MPV Git commit**: https://github.com/mpv-player/mpv/commit/${sha}\n`;
+            let note = `**FFmpeg Git commit**: https://github.com/mitzsch/FFmpeg/commit/master-2/${sha}\n`;
+            let note = `**MPV Git commit**: https://github.com/mitzsch/mpv/commit/plex-htpc-patches/${sha}\n`;
             note+="**Build Time**: ${{ env.long_time }}\n";
             note+="**Compiler**: ${{ inputs.compiler }}\n";
             note+="**Build Details**: https://github.com/${{github.repository}}/actions/runs/${{github.run_id}}\n";

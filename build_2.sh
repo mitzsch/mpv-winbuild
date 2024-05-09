@@ -70,9 +70,9 @@ build() {
         ninja -C $buildroot/build$bit rustup
     fi
     ninja -C $buildroot/build$bit update
-    ninja -C $buildroot/build$bit mpv-fullclean
+    ninja -C $buildroot/build$bit mpv-plex-otruehd-fullclean
     
-    ninja -C $buildroot/build$bit mpv-plex-ntruehd
+    ninja -C $buildroot/build$bit mpv-plex-otruehd
 
     if [ -n "$(find $buildroot/build$bit -maxdepth 1 -type d -name "mpv*$arch*" -print -quit)" ] ; then
         echo "Successfully compiled $bit-bit. Continue"
