@@ -9,6 +9,7 @@ Use Github Action to build mpv for Windows with latest commit.
 This is a fork of <https://github.com/zhongfly/mpv-winbuild>.
 
 Originally based on <https://github.com/shinchiro/mpv-winbuild-cmake>.
+
 Adapted to <https://github.com/mitzsch/mpv-winbuild-cmake>.
 
 ## Auto-Builds
