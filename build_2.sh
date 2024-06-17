@@ -69,7 +69,6 @@ build() {
         ninja -C $buildroot/build$bit rustup
     fi
     ninja -C $buildroot/build$bit update
-    ninja -C $buildroot/build$bit libvpl-removeprefix
     ninja -C $buildroot/build$bit ffmpeg-otruehd-fullclean
     ninja -C $buildroot/build$bit ffmpeg-ntruehd-fullclean 	
     ninja -C $buildroot/build$bit mpv-plex-otruehd-fullclean
