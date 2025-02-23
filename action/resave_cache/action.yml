@@ -5,6 +5,10 @@ inputs:
     description: 'The repository to use for the cache. The default is the current repository.'
     required: false
     default: ${{ github.repository }}
+  ref:
+    description: 'The ref to use for the cache. The default is the current ref.'
+    required: false
+    default: ${{ github.ref }}
   path:
     description: 'A list of files, directories, and wildcard patterns to cache and restore'
     required: true
@@ -51,17 +55,19 @@ runs:
           -H "Accept: application/vnd.github+json" \
           -H "Authorization: Bearer ${{ inputs.token }}" \
           -H "X-GitHub-Api-Version: 2022-11-28" \
-          "https://api.github.com/repos/${{ inputs.repository }}/actions/caches?key=${{ steps.restore.outputs.cache-matched-key }}")
+          "https://api.github.com/repos/${{ inputs.repository }}/actions/caches?key=${{ steps.restore.outputs.cache-matched-key }}&ref=${{ inputs.ref }}")
         if [ "$response" -ne 200 ]; then
           echo "Error: Failed to delete cache with status code $response"
           echo "Response body:"
           cat response_body.txt
-          exit 1
+          echo "result=false" >> "$GITHUB_OUTPUT"
+        else
+          echo "result=true" >> "$GITHUB_OUTPUT"
         fi
         rm -f response_body.txt
 
     - name: Save cache
-      if: ${{ steps.restore.outputs.cache-matched-key != '' }}
+      if: ${{ steps.restore.outputs.cache-matched-key != '' && steps.delete.outputs.result == 'true' }}
       uses: actions/cache/save@v4.2.0
       with: 
         path: ${{ inputs.path }}
