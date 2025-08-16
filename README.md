@@ -83,7 +83,7 @@ same as [shinchiro/mitzsch](https://github.com/mitzsch/mpv-winbuild-cmake/blob/m
     -   libzvbi [![libzvbi](https://flat.badgen.net/github/last-commit/zapping-vbi/zvbi/main?scale=0.8&cache=1800)](https://github.com/zapping-vbi/zvbi)
     -   luajit [![luajit](https://flat.badgen.net/github/last-commit/openresty/luajit2/v2.1-agentzh?scale=0.8&cache=1800)](https://github.com/openresty/luajit2)
     -   mpv (modified) [![mpv](https://flat.badgen.net/github/last-commit/mitzsch/mpv?scale=0.8&cache=1800)](https://github.com/mitzsch/mpv)
-    -   mujs [![mujs](https://flat.badgen.net/github/last-commit/ccxvii/mujs?scale=0.8&cache=1800)](https://github.com/ccxvii/mujs)
+    -   mujs [![mujs](https://flat.badgen.net/https/latest-commit-badgen.vercel.app/codeberg/ccxvii/mujs?scale=0.8&cache=1800)](https://codeberg.org/ccxvii/mujs)
     -   nvcodec-headers [![nvcodec-headers](https://flat.badgen.net/github/last-commit/FFmpeg/nv-codec-headers?scale=0.8&cache=1800)](https://git.videolan.org/?p=ffmpeg/nv-codec-headers.git)
     -   ogg [![ogg](https://flat.badgen.net/github/last-commit/xiph/ogg?scale=0.8&cache=1800)](https://github.com/xiph/ogg)
     -   openal-soft [![openal-soft](https://flat.badgen.net/github/last-commit/kcat/openal-soft?scale=0.8&cache=1800)](https://github.com/kcat/openal-soft)
