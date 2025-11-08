@@ -4,7 +4,6 @@
 [![GitHub Workflow Status - New TrueHD](https://img.shields.io/github/actions/workflow/status/mitzsch/mpv-winbuild/mpv_3.yml?branch=main)](https://github.com/mitzsch/mpv-winbuild/actions)
 [![releases](https://img.shields.io/github/v/release/mitzsch/mpv-winbuild)](https://github.com/mitzsch/mpv-winbuild/releases/latest)
 [![downloads](https://img.shields.io/github/downloads/mitzsch/mpv-winbuild/total)](https://github.com/mitzsch/mpv-winbuild/releases)
-<a href="https://hits.seeyoufarm.com"><img src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2Fmitzsch%2Fmpv-winbuild&count_bg=%2379C83D&title_bg=%23555555&icon=&icon_color=%23E7E7E7&title=hits&edge_flat=false"/></a>
 
 Use Github Action to build mpv for Windows with latest commit.
 
