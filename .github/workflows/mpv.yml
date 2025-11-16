@@ -162,7 +162,7 @@ jobs:
             core.setOutput("patch_note",patch_note.trim());
       
       - name: upload patch
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v5
         if: ${{ steps.script.outputs.patch_note }}
         with:
           name: mpv-patch
@@ -181,13 +181,12 @@ jobs:
     steps:
       - name: Install Dependencies
         run: |
-          sudo echo -e "[multilib]\nInclude = /etc/pacman.d/mirrorlist" >> /etc/pacman.conf
+          sudo echo -e "[multilib]\nInclude = /etc/pacman.d/mirrorlist" | sudo tee -a /etc/pacman.conf >/dev/null
+          sudo pacman-key --init
+          sudo pacman-key --populate archlinux
           sudo pacman -Syu --noconfirm
-          sudo pacman -S --noconfirm --needed git ninja cmake meson clang lld libc++ unzip ragel yasm nasm gperf rst2pdf lib32-gcc-libs lib32-glib2 python-cairo curl wget mimalloc ccache retry
-          sudo retry -t 5 pacman -U --noconfirm https://archive.archlinux.org/packages/p/python-docutils/python-docutils-1%3A0.21.2-3-any.pkg.tar.zst
-          mkdir -p /home/opt/7zip
-          wget -qO - https://www.7-zip.org/a/7z2500-linux-x64.tar.xz | tar -xJf - -C /home/opt/7zip 7zzs
-          sudo ln -s /home/opt/7zip/7zzs /usr/bin/7z
+          sudo pacman -S --noconfirm --needed git ninja cmake meson clang lld libc++ unzip ragel yasm nasm gperf rst2pdf lib32-gcc-libs lib32-glib2 python-cairo curl wget mimalloc ccache python-pip 7zip
+          sudo python -m pip install --break-system-packages roman
           git config --global user.name "github-actions[bot]"
           git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git config --global pull.rebase true
@@ -314,7 +313,7 @@ jobs:
 
       - name: Download mpv patch
         if: ${{ needs.params.outputs.patch_note }}
-        uses: actions/download-artifact@v5
+        uses: actions/download-artifact@v6
         with:
           name: mpv-patch
           path: mpv-patch
@@ -399,7 +398,7 @@ jobs:
         run: |
           sudo 7z a logs.7z $(find mpv-winbuild-cmake/build${{ matrix.bit }} -type f -iname "*-*.log" -or -wholename "*/ffbuild/config.log")
       - name: upload logs
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v5
         if: ${{ always() }}
         with:
           name: ${{ matrix.bit }}${{ matrix.lgpl == true && '-lgpl' || '' }}_logs
@@ -447,26 +446,26 @@ jobs:
             await exec.exec(`7z a -m0=lzma2 -mx=9 -ms=on mpv-winbuild-cmake/release/${ffmpeg_name}.7z ${ffmpeg_path}`)
 
       - name: upload mpv-debug
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v5
         if: ${{ env.mpv-debug_name && env.mpv-debug_path }}
         with:
           name: ${{ env.mpv-debug_name }}
           path: ${{ env.mpv-debug_path }}
       - name: upload mpv-dev
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v5
         if: ${{ env.mpv-dev_name && env.mpv-dev_path }}
         with:
           name: ${{ env.mpv-dev_name }}
           path: ${{ env.mpv-dev_path }}
       - name: upload mpv
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v5
         if: ${{ env.mpv_name && env.mpv_path }}
         with:
           name: ${{ env.mpv_name }}
           path: ${{ env.mpv_path }}
           
       - name: upload ffmpeg
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v5
         if: ${{ env.ffmpeg_name }}
         with:
           name: ${{ env.ffmpeg_name }}
@@ -607,7 +606,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v5
       - name: Download artifacts
-        uses: actions/download-artifact@v5
+        uses: actions/download-artifact@v6
         with:
           path: artifacts
           pattern: '{mpv,ffmpeg}*'
@@ -684,7 +683,7 @@ jobs:
             for(const arch of Object.keys(tips)){
               note += await getTips(arch);
             }
-            note+="**Downloads**: ![downloads](https://badgen.net/github/assets-dl/${{github.repository}}/${{ env.tag_name }}?cache=300)";
+            note+="**Downloads**: ![downloads](https://img.shields.io/github/downloads/${{github.repository}}/${{ env.tag_name }}/total?cacheSeconds=300)";
             core.setOutput("note",note);
 
             const os = require('os'); 

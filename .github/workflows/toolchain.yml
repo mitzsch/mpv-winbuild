@@ -100,12 +100,11 @@ jobs:
     steps:
       - name: Install Dependencies
         run: |
-          sudo echo -e "[multilib]\nInclude = /etc/pacman.d/mirrorlist" >> /etc/pacman.conf
+          sudo echo -e "[multilib]\nInclude = /etc/pacman.d/mirrorlist" | sudo tee -a /etc/pacman.conf >/dev/null
+          sudo pacman-key --init
+          sudo pacman-key --populate archlinux
           sudo pacman -Syu --noconfirm
-          sudo pacman -S --noconfirm --needed git ninja cmake meson wget mimalloc
-          mkdir -p /home/opt/7zip
-          wget -qO - https://www.7-zip.org/a/7z2500-linux-x64.tar.xz | tar -xJf - -C /home/opt/7zip 7zzs
-          sudo ln -s /home/opt/7zip/7zzs /usr/bin/7z
+          sudo pacman -S --noconfirm --needed git ninja cmake meson wget mimalloc 7zip unzip
           git config --global user.name "github-actions[bot]"
           git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git config --global pull.rebase true
@@ -166,7 +165,7 @@ jobs:
         run: |
           sudo 7z a logs.7z $(find mpv-winbuild-cmake -type f -iname "*-*.log" -or -wholename "*/ffbuild/config.log")
       - name: upload logs
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v5
         if: ${{ always() }}
         with:
           name: ${{ matrix.bit }}_logs
