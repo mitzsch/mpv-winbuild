@@ -186,7 +186,6 @@ jobs:
           sudo pacman-key --populate archlinux
           sudo pacman -Syu --noconfirm
           sudo pacman -S --noconfirm --needed git ninja cmake meson clang lld libc++ unzip ragel yasm nasm gperf rst2pdf lib32-gcc-libs lib32-glib2 python-cairo curl wget mimalloc ccache python-pip 7zip
-          sudo pacman -U --noconfirm https://archive.archlinux.org/packages/m/meson/meson-1.9.2-1-any.pkg.tar.zst
           sudo python -m pip install --break-system-packages roman
           git config --global user.name "github-actions[bot]"
           git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
@@ -485,7 +484,7 @@ jobs:
           path: ${{ github.workspace }}/mpv-winbuild-cmake/src_packages
           key: source-${{ env.cache_suffix }}
       - name: Save Rust Cache
-        if: ${{ false && inputs.no_save_cache != true && matrix.lgpl != true }}
+        if: ${{ inputs.no_save_cache != true && matrix.lgpl != true }}
         uses: actions/cache/save@v5.0.1
         with:
           path: ${{ github.workspace }}/mpv-winbuild-cmake/install_rustup
