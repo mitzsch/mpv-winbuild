@@ -68,7 +68,7 @@ jobs:
       patch_note: ${{ steps.script.outputs.patch_note }}
     steps:
       - id: script
-        uses: actions/github-script@v8
+        uses: actions/github-script@v9
         with:
           script: |
             const commit = await github.rest.repos.getCommit({
@@ -209,7 +209,7 @@ jobs:
 
       - name: Lookup Toolchain Cache
         id: lookup_toolchain
-        uses: actions/cache/restore@v5.0.3
+        uses: actions/cache/restore@v5.0.5
         with:
           path: ${{ github.workspace }}/mpv-winbuild-cmake/build${{ matrix.bit }}
           key: toolchain-${{ inputs.compiler }}-build${{ matrix.bit }}-${{ env.cache_suffix }}
@@ -218,7 +218,7 @@ jobs:
           lookup-only: true
       - name: Lookup Build Cache
         id: lookup_build
-        uses: actions/cache/restore@v5.0.3
+        uses: actions/cache/restore@v5.0.5
         with:
           path: ${{ github.workspace }}/mpv-winbuild-cmake/build${{ matrix.bit }}
           key: ${{ inputs.compiler }}-build${{ matrix.bit }}-${{ env.cache_suffix }}
@@ -228,7 +228,7 @@ jobs:
           
       - name: Generate cache key
         id: generate_key
-        uses: actions/github-script@v8
+        uses: actions/github-script@v9
         with:
           script: |
             let toolchain_restore_key="${{ steps.lookup_toolchain.outputs.cache-matched-key }}";
@@ -262,7 +262,7 @@ jobs:
 
       - name: Restore clang sysroot cache
         if: ${{ inputs.compiler =='clang' }}
-        uses: actions/cache/restore@v5.0.3
+        uses: actions/cache/restore@v5.0.5
         with: 
           path: ${{ github.workspace }}/mpv-winbuild-cmake/clang_root
           key: ${{ matrix.bit }}-clang_root-${{ env.key_suffix }}
@@ -270,7 +270,7 @@ jobs:
             ${{ matrix.bit }}-clang_root-${{ env.restore_suffix }}
 
       - name: Restore Rust Cache
-        uses: actions/cache/restore@v5.0.3
+        uses: actions/cache/restore@v5.0.5
         id: cache_rust
         with:
           path: ${{ github.workspace }}/mpv-winbuild-cmake/install_rustup
@@ -278,7 +278,7 @@ jobs:
           restore-keys: |
             rust-${{ env.restore_suffix }}
       - name: Restore Source Cache
-        uses: actions/cache/restore@v5.0.3
+        uses: actions/cache/restore@v5.0.5
         with:
           path: ${{ github.workspace }}/mpv-winbuild-cmake/src_packages
           key: source-${{ env.key_suffix }}
@@ -286,13 +286,13 @@ jobs:
             source-${{ env.restore_suffix }}
       - name: Restore Toolchain Cache
         if: ${{ env.toolchain_restore_key != '' }}
-        uses: actions/cache/restore@v5.0.3
+        uses: actions/cache/restore@v5.0.5
         with:
           path: ${{ github.workspace }}/mpv-winbuild-cmake/build${{ matrix.bit }}
           key: ${{ env.toolchain_restore_key }}
       - name: Restore Build Cache
         if: ${{ inputs.needclean != true && env.build_restore_key != '' }}
-        uses: actions/cache/restore@v5.0.3
+        uses: actions/cache/restore@v5.0.5
         with:
           path: ${{ github.workspace }}/mpv-winbuild-cmake/build${{ matrix.bit }}
           key: ${{ env.build_restore_key }}
@@ -405,7 +405,7 @@ jobs:
 
       - name: "Get artifacts' name and path"
         id: get_files
-        uses: actions/github-script@v8
+        uses: actions/github-script@v9
         with:
           script: |
             const path = require('path');
@@ -471,31 +471,31 @@ jobs:
 
       - name: Save clang sysroot cache
         if: ${{ inputs.compiler =='clang' && inputs.no_save_cache != true && matrix.lgpl != true }}
-        uses: actions/cache/save@v5.0.3
+        uses: actions/cache/save@v5.0.5
         with: 
           path: ${{ github.workspace }}/mpv-winbuild-cmake/clang_root
           key: ${{ matrix.bit }}-clang_root-${{ env.cache_suffix }}
       - name: Save Sources Cache
         if: ${{ inputs.no_save_cache != true && matrix.lgpl != true }}
-        uses: actions/cache/save@v5.0.3
+        uses: actions/cache/save@v5.0.5
         with:
           path: ${{ github.workspace }}/mpv-winbuild-cmake/src_packages
           key: source-${{ env.cache_suffix }}
       - name: Save Rust Cache
         if: ${{ inputs.no_save_cache != true && matrix.lgpl != true }}
-        uses: actions/cache/save@v5.0.3
+        uses: actions/cache/save@v5.0.5
         with:
           path: ${{ github.workspace }}/mpv-winbuild-cmake/install_rustup
           key: rust-${{ env.cache_suffix }}
       - name: Save Build Cache
         if: ${{ inputs.no_save_cache != true && matrix.lgpl != true }}
-        uses: actions/cache/save@v5.0.3
+        uses: actions/cache/save@v5.0.5
         with:
           path: ${{ github.workspace }}/mpv-winbuild-cmake/build${{ matrix.bit }}
           key: ${{ env.build_save_key }}
 
       - name: "Job summary"
-        uses: actions/github-script@v8
+        uses: actions/github-script@v9
         continue-on-error: true
         if: ${{ always() }}
         with:
@@ -612,7 +612,7 @@ jobs:
           skip-decompress : true
     
       - name: "Check artifacts"
-        uses: actions/github-script@v8
+        uses: actions/github-script@v9
         with:
           script: |
             const globber = await glob.create(`artifacts/mpv*.7z`);
@@ -649,7 +649,7 @@ jobs:
 
       - name: "Generate release note & sha256"
         id: note
-        uses: actions/github-script@v8
+        uses: actions/github-script@v9
         with:
           script: |
             const sha = `${{ needs.params.outputs.sha }}`;
@@ -754,7 +754,7 @@ jobs:
 
       - name: Generate cache key
         id: generate_key
-        uses: actions/github-script@v8
+        uses: actions/github-script@v9
         with:
           script: |
             let toolchain_restore_key="${{ steps.toolchain.outputs.cache-matched-key }}";

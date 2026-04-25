@@ -115,7 +115,7 @@ jobs:
           extra_option: "-DLLVM_ENABLE_PGO=USE -DLLVM_ENABLE_LTO=Thin -DLLVM_PROFDATA_FILE=$buildroot/llvm.profdata"
 
       - name: Save llvm cache
-        uses: actions/cache/save@v5.0.3
+        uses: actions/cache/save@v5.0.5
         if: ${{ !inputs.no_save_cache }}
         with: 
           path: |
@@ -143,7 +143,7 @@ jobs:
 
     steps:
       - name: Trigger Toolchain build workflow
-        uses: actions/github-script@v8
+        uses: actions/github-script@v9
         with:
           retries: 3
           script: |
