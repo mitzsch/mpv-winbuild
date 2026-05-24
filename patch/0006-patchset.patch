@@ -1,13 +1,11 @@
 diff --git a/packages/CMakeLists.txt b/packages/CMakeLists.txt
-index 0edcea8..1ada4b4 100644
+index 0edcea8..c3ccfb9 100644
 --- a/packages/CMakeLists.txt
 +++ b/packages/CMakeLists.txt
-@@ -87,16 +87,15 @@ list(APPEND ep
-     libaribcaption
-     libsixel
+@@ -89,6 +89,12 @@ list(APPEND ep
      ffmpeg
--    ffmpeg-otruehd
--    ffmpeg-ntruehd
+     ffmpeg-otruehd
+     ffmpeg-ntruehd
 +    ngtcp2
 +    nghttp3
 +    nghttp2
@@ -15,10 +13,10 @@ index 0edcea8..1ada4b4 100644
 +    libpsl
 +    curl
      mpv
--    mpv-otruehd
--    mpv-ntruehd
--    mpv-plex-otruehd
--    mpv-plex-ntruehd
+     mpv-otruehd
+     mpv-ntruehd
+@@ -96,7 +102,6 @@ list(APPEND ep
+     mpv-plex-ntruehd
      mpv-release
      mpv-packaging
 -    curl
