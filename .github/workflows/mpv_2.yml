@@ -325,14 +325,14 @@ jobs:
           cd mpv-winbuild-cmake
           if [[ "$(ls -A ../patch_pr/0000-*.patch)" ]]; then
             for patch in ../patch_pr/0000-*.patch ; do
-              git am --3way "$patch" || git am --abort
+              git apply "$patch" ||  exit 1
             done
           fi
           for patch in packages/mpv-*.patch ; do
             pr="$(echo ${patch#*#} | cut -d- -f1)"
             if [[ "$(ls -A ../patch_pr/#${pr}-*.patch)" ]]; then
               for p in ../patch_pr/#${pr}-*.patch ; do
-                git am --3way "$p" || git am --abort
+                git apply "$patch" ||  exit 1
               done
             fi
           done
@@ -384,7 +384,7 @@ jobs:
           cd mpv-winbuild-cmake
           if [[ "$(ls -A ../patch/*.patch)" ]]; then
             for patch in ../patch/*.patch ; do
-              git am --3way "$patch" || git am --abort
+              git apply "$patch" ||  exit 1
             done
           fi
           if [ "${{ matrix.lgpl }}" = "true" ]; then
