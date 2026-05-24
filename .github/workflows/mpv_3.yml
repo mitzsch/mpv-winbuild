@@ -383,7 +383,7 @@ jobs:
           cd mpv-winbuild-cmake
           if [[ "$(ls -A ../patch/*.patch)" ]]; then
             for patch in ../patch/*.patch ; do
-              git am --3way "$patch" || git am --abort
+              git apply "$patch" ||  exit 1
             done
           fi
           if [ "${{ matrix.lgpl }}" = "true" ]; then
