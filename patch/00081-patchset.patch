@@ -1,19 +1,28 @@
 diff --git a/packages/CMakeLists.txt b/packages/CMakeLists.txt
-index f3fb361..b28da6a 100644
+index f3fb361..e8ae1fa 100644
 --- a/packages/CMakeLists.txt
 +++ b/packages/CMakeLists.txt
-@@ -98,6 +98,11 @@ list(APPEND ep
-     mpv-plex-ntruehdv2
-     mpv-release
-     mpv-packaging
+@@ -90,6 +90,12 @@ list(APPEND ep
+     ffmpeg-otruehd
+     ffmpeg-ntruehd
+     ffmpeg-ntruehdv2
 +    ngtcp2
 +    nghttp3
 +    nghttp2
 +    c-ares
 +    libpsl
-     curl
++    curl
+     mpv
+     mpv-otruehd
+     mpv-ntruehd
+@@ -98,7 +104,6 @@ list(APPEND ep
+     mpv-plex-ntruehdv2
+     mpv-release
+     mpv-packaging
+-    curl
      flac
      opusfile
+     libopusenc
 diff --git a/packages/curl.cmake b/packages/curl.cmake
 index 5b73db3..bda7d40 100644
 --- a/packages/curl.cmake
