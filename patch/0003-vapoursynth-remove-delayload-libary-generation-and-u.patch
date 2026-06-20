@@ -1,3 +1,19 @@
+From 5e101ab4c81d947bb72e542789f074e0116fd9b9 Mon Sep 17 00:00:00 2001
+From: zhongfly <11155705+zhongfly@users.noreply.github.com>
+Date: Wed, 13 May 2026 19:43:55 +0800
+Subject: [PATCH] vapoursynth: remove delayload libary generation and update to
+ r72
+
+---
+ packages/VSScript.def             | 27 ----------
+ packages/VapourSynth.def          |  8 ---
+ packages/vapoursynth-script.pc.in |  1 -
+ packages/vapoursynth.cmake        | 86 +++++--------------------------
+ packages/vapoursynth.pc.in        |  3 --
+ 5 files changed, 14 insertions(+), 111 deletions(-)
+ delete mode 100644 packages/VSScript.def
+ delete mode 100644 packages/VapourSynth.def
+
 diff --git a/packages/VSScript.def b/packages/VSScript.def
 deleted file mode 100644
 index 0a68d98..0000000
@@ -56,7 +72,7 @@ index 81f0415..6b047b2 100644
 -Libs: -L${libdir} @vapoursynth_script_pkgconfig_libs@
  Cflags: -I${includedir}
 diff --git a/packages/vapoursynth.cmake b/packages/vapoursynth.cmake
-index 07c2204..de31b14 100644
+index a61c611..de31b14 100644
 --- a/packages/vapoursynth.cmake
 +++ b/packages/vapoursynth.cmake
 @@ -1,82 +1,24 @@
@@ -154,7 +170,6 @@ index 07c2204..de31b14 100644
  )
  
 -cleanup(vapoursynth manual-install)
-\ No newline at end of file
 +force_rebuild_git(vapoursynth)
 +cleanup(vapoursynth install)
 \ No newline at end of file
@@ -170,3 +185,6 @@ index 2d2580c..729a278 100644
 -Libs: -L${libdir} @vapoursynth_pkgconfig_libs@
 -Libs.private: -L${libdir} -lzimg
  Cflags: -I${includedir}
+-- 
+2.52.0.windows.1
+

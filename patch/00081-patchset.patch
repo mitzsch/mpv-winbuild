@@ -1,33 +1,24 @@
 diff --git a/packages/CMakeLists.txt b/packages/CMakeLists.txt
-index 0edcea8..c3ccfb9 100644
+index f3fb361..b28da6a 100644
 --- a/packages/CMakeLists.txt
 +++ b/packages/CMakeLists.txt
-@@ -89,6 +89,12 @@ list(APPEND ep
-     ffmpeg
-     ffmpeg-otruehd
-     ffmpeg-ntruehd
+@@ -98,6 +98,11 @@ list(APPEND ep
+     mpv-plex-ntruehdv2
+     mpv-release
+     mpv-packaging
 +    ngtcp2
 +    nghttp3
 +    nghttp2
 +    c-ares
 +    libpsl
-+    curl
-     mpv
-     mpv-otruehd
-     mpv-ntruehd
-@@ -96,7 +102,6 @@ list(APPEND ep
-     mpv-plex-ntruehd
-     mpv-release
-     mpv-packaging
--    curl
+     curl
      flac
      opusfile
-     libopusenc
 diff --git a/packages/curl.cmake b/packages/curl.cmake
-index 5b73db3..0fdf58e 100644
+index 5b73db3..bda7d40 100644
 --- a/packages/curl.cmake
 +++ b/packages/curl.cmake
-@@ -1,25 +1,59 @@
+@@ -1,25 +1,60 @@
  ExternalProject_Add(curl
      DEPENDS
 -        mbedtls
@@ -87,6 +78,7 @@ index 5b73db3..0fdf58e 100644
 +        -DUSE_ECH=ON
 +        -DUSE_HTTPSRR=ON
 +        -DUSE_SSLS_EXPORT=ON
++        -DUSE_PROXY_HTTP3=ON
 +        -DCURL_USE_PKGCONFIG=ON
 +        -DCMAKE_DISABLE_FIND_PACKAGE_Perl=ON
 +        "-DCMAKE_C_FLAGS='-DNGHTTP3_STATICLIB -DNGHTTP2_STATICLIB -DNGTCP2_STATICLIB -lz -lbrotlienc -lbrotlidec -lbrotlicommon -lzstd -lcrypt32 -lsecur32'"
