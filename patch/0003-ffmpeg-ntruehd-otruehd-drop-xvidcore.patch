@@ -1,0 +1,60 @@
+diff --git a/packages/ffmpeg-ntruehd.cmake b/packages/ffmpeg-ntruehd.cmake
+index 6304d06..5ab0c9e 100644
+--- a/packages/ffmpeg-ntruehd.cmake
++++ b/packages/ffmpeg-ntruehd.cmake
+@@ -28,7 +28,6 @@ ExternalProject_Add(ffmpeg-ntruehd
+         vorbis
+         x264
+         ${ffmpeg_x265}
+-        xvidcore
+         libxml2
+         libvpl
+         libopenmpt
+@@ -92,7 +91,6 @@ ExternalProject_Add(ffmpeg-ntruehd
+         --enable-libdav1d
+         ${ffmpeg_davs2_cmd}
+         ${ffmpeg_uavs3d_cmd}
+-        --enable-libxvid
+         --enable-libzimg
+         --enable-openssl
+         --enable-libxml2
+diff --git a/packages/ffmpeg-ntruehdv2.cmake b/packages/ffmpeg-ntruehdv2.cmake
+index 1e44fe3..238655f 100644
+--- a/packages/ffmpeg-ntruehdv2.cmake
++++ b/packages/ffmpeg-ntruehdv2.cmake
+@@ -28,7 +28,6 @@ ExternalProject_Add(ffmpeg-ntruehdv2
+         vorbis
+         x264
+         ${ffmpeg_x265}
+-        xvidcore
+         libxml2
+         libvpl
+         libopenmpt
+@@ -92,7 +91,6 @@ ExternalProject_Add(ffmpeg-ntruehdv2
+         --enable-libdav1d
+         ${ffmpeg_davs2_cmd}
+         ${ffmpeg_uavs3d_cmd}
+-        --enable-libxvid
+         --enable-libzimg
+         --enable-openssl
+         --enable-libxml2
+diff --git a/packages/ffmpeg-otruehd.cmake b/packages/ffmpeg-otruehd.cmake
+index 1925d4a..048d528 100644
+--- a/packages/ffmpeg-otruehd.cmake
++++ b/packages/ffmpeg-otruehd.cmake
+@@ -28,7 +28,6 @@ ExternalProject_Add(ffmpeg-otruehd
+         vorbis
+         x264
+         ${ffmpeg_x265}
+-        xvidcore
+         libxml2
+         libvpl
+         libopenmpt
+@@ -92,7 +91,6 @@ ExternalProject_Add(ffmpeg-otruehd
+         --enable-libdav1d
+         ${ffmpeg_davs2_cmd}
+         ${ffmpeg_uavs3d_cmd}
+-        --enable-libxvid
+         --enable-libzimg
+         --enable-openssl
+         --enable-libxml2

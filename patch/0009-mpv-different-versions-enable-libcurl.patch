@@ -1,0 +1,120 @@
+diff --git a/packages/mpv-ntruehd.cmake b/packages/mpv-ntruehd.cmake
+index d32271d..2f0f8d1 100644
+--- a/packages/mpv-ntruehd.cmake
++++ b/packages/mpv-ntruehd.cmake
+@@ -24,6 +24,7 @@ ExternalProject_Add(mpv-ntruehd
+         libsdl2
+         subrandr
+         libsixel
++        curl
+     GIT_REPOSITORY https://github.com/mpv-player/mpv.git
+     SOURCE_DIR ${SOURCE_LOCATION}
+     GIT_CLONE_FLAGS "--filter=tree:0"
+@@ -58,6 +59,7 @@ ExternalProject_Add(mpv-ntruehd
+         -Dsubrandr=enabled
+         -Dsixel=enabled		
+         ${mpv_gl}
++        -Dlibcurl=enabled
+         -Dc_args='-Wno-error=int-conversion'
+     BUILD_COMMAND ${EXEC} LTO_JOB=1 PDB=1 ninja -C <BINARY_DIR>
+     INSTALL_COMMAND ""
+diff --git a/packages/mpv-otruehd.cmake b/packages/mpv-otruehd.cmake
+index 2b31399..0c28117 100644
+--- a/packages/mpv-otruehd.cmake
++++ b/packages/mpv-otruehd.cmake
+@@ -24,6 +24,7 @@ ExternalProject_Add(mpv-otruehd
+         libsdl2
+         subrandr
+         libsixel
++        curl
+     GIT_REPOSITORY https://github.com/mpv-player/mpv.git
+     SOURCE_DIR ${SOURCE_LOCATION}
+     GIT_CLONE_FLAGS "--filter=tree:0"
+@@ -58,6 +59,7 @@ ExternalProject_Add(mpv-otruehd
+         -Dsubrandr=enabled
+         -Dsixel=enabled
+         ${mpv_gl}
++        -Dlibcurl=enabled
+         -Dc_args='-Wno-error=int-conversion'
+     BUILD_COMMAND ${EXEC} LTO_JOB=1 PDB=1 ninja -C <BINARY_DIR>
+     INSTALL_COMMAND ""
+diff --git a/packages/mpv-plex-ntruehd.cmake b/packages/mpv-plex-ntruehd.cmake
+index 7635492..6dbd0f9 100644
+--- a/packages/mpv-plex-ntruehd.cmake
++++ b/packages/mpv-plex-ntruehd.cmake
+@@ -24,6 +24,7 @@ ExternalProject_Add(mpv-plex-ntruehd
+         libsdl2
+         subrandr
+         libsixel
++        curl
+     GIT_REPOSITORY https://github.com/mitzsch/mpv.git
+     SOURCE_DIR ${SOURCE_LOCATION}
+     GIT_CLONE_FLAGS "--filter=tree:0"
+@@ -60,6 +61,7 @@ ExternalProject_Add(mpv-plex-ntruehd
+         -Dsubrandr=enabled
+         -Dsixel=enabled
+         ${mpv_gl}
++        -Dlibcurl=enabled
+         -Dc_args='-Wno-error=int-conversion'
+     BUILD_COMMAND ${EXEC} LTO_JOB=1 PDB=1 ninja -C <BINARY_DIR>
+     INSTALL_COMMAND ""
+diff --git a/packages/mpv-plex-ntruehdv2.cmake b/packages/mpv-plex-ntruehdv2.cmake
+index a85373f..e6e624a 100644
+--- a/packages/mpv-plex-ntruehdv2.cmake
++++ b/packages/mpv-plex-ntruehdv2.cmake
+@@ -24,6 +24,7 @@ ExternalProject_Add(mpv-plex-ntruehdv2
+         libsdl2
+         subrandr
+         libsixel
++        curl
+     GIT_REPOSITORY https://github.com/mitzsch/mpv.git
+     SOURCE_DIR ${SOURCE_LOCATION}
+     GIT_CLONE_FLAGS "--filter=tree:0"
+@@ -60,6 +61,7 @@ ExternalProject_Add(mpv-plex-ntruehdv2
+         -Dsubrandr=enabled
+         -Dsixel=enabled
+         ${mpv_gl}
++        -Dlibcurl=enabled
+         -Dc_args='-Wno-error=int-conversion'
+     BUILD_COMMAND ${EXEC} LTO_JOB=1 PDB=1 ninja -C <BINARY_DIR>
+     INSTALL_COMMAND ""
+diff --git a/packages/mpv-plex-otruehd.cmake b/packages/mpv-plex-otruehd.cmake
+index 50ea77b..0131dc0 100644
+--- a/packages/mpv-plex-otruehd.cmake
++++ b/packages/mpv-plex-otruehd.cmake
+@@ -24,6 +24,7 @@ ExternalProject_Add(mpv-plex-otruehd
+         libsdl2
+         subrandr
+         libsixel
++        curl
+     GIT_REPOSITORY https://github.com/mitzsch/mpv.git
+     SOURCE_DIR ${SOURCE_LOCATION}
+     GIT_CLONE_FLAGS "--filter=tree:0"
+@@ -60,6 +61,7 @@ ExternalProject_Add(mpv-plex-otruehd
+         -Dsubrandr=enabled
+         -Dsixel=enabled
+         ${mpv_gl}
++        -Dlibcurl=enabled
+         -Dc_args='-Wno-error=int-conversion'
+     BUILD_COMMAND ${EXEC} LTO_JOB=1 PDB=1 ninja -C <BINARY_DIR>
+     INSTALL_COMMAND ""
+diff --git a/packages/mpv.cmake b/packages/mpv.cmake
+index d50d992..68fb9fe 100644
+--- a/packages/mpv.cmake
++++ b/packages/mpv.cmake
+@@ -24,6 +24,7 @@ ExternalProject_Add(mpv
+         libsdl2
+         subrandr
+         libsixel
++        curl
+     GIT_REPOSITORY https://github.com/mpv-player/mpv.git
+     SOURCE_DIR ${SOURCE_LOCATION}
+     GIT_CLONE_FLAGS "--filter=tree:0"
+@@ -58,6 +59,7 @@ ExternalProject_Add(mpv
+         -Dsubrandr=enabled
+         -Dsixel=enabled
+         ${mpv_gl}
++        -Dlibcurl=enabled
+         -Dc_args='-Wno-error=int-conversion'
+     BUILD_COMMAND ${EXEC} LTO_JOB=1 PDB=1 ninja -C <BINARY_DIR>
+     INSTALL_COMMAND ""
