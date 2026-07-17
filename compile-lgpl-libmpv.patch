@@ -1,4 +1,4 @@
-From 3a3eba549e4ad6aedc080a000f1fefaec5c2bb9f Mon Sep 17 00:00:00 2001
+From a339d3997ffdb5f24d87e1c8f9b76577d0232ec4 Mon Sep 17 00:00:00 2001
 From: zhongfly <11155705+zhongfly@users.noreply.github.com>
 Date: Thu, 14 May 2026 21:55:52 +0800
 Subject: [PATCH] packages: compile lgpl libmpv
@@ -28,7 +28,7 @@ index e062242..0154cf5 100644
      set(rust_target "gnullvm")
      set(vapoursynth_pkgconfig_libs "-lVapourSynth -Wl,-delayload=VapourSynth.dll")
 diff --git a/packages/ffmpeg.cmake b/packages/ffmpeg.cmake
-index 993bb28..abb97a5 100644
+index b9ab7a3..c7a96f2 100644
 --- a/packages/ffmpeg.cmake
 +++ b/packages/ffmpeg.cmake
 @@ -1,18 +1,13 @@
@@ -50,7 +50,7 @@ index 993bb28..abb97a5 100644
          libmodplug
          libpng
          libsoxr
-@@ -26,23 +21,18 @@ ExternalProject_Add(ffmpeg
+@@ -26,22 +21,17 @@ ExternalProject_Add(ffmpeg
          opus
          speex
          vorbis
@@ -60,7 +60,6 @@ index 993bb28..abb97a5 100644
          libvpl
          libopenmpt
          libjxl
-         shaderc
          libplacebo
 -        libzvbi
          libaribcaption
@@ -74,7 +73,7 @@ index 993bb28..abb97a5 100644
          libva
          openal-soft
      GIT_REPOSITORY https://github.com/FFmpeg/FFmpeg.git
-@@ -58,14 +48,10 @@ ExternalProject_Add(ffmpeg
+@@ -57,14 +47,10 @@ ExternalProject_Add(ffmpeg
          --pkg-config-flags=--static
          --enable-cross-compile
          --enable-runtime-cpudetect
@@ -89,7 +88,7 @@ index 993bb28..abb97a5 100644
          --enable-libfreetype
          --enable-libfribidi
          --enable-libfontconfig
-@@ -79,27 +65,20 @@ ExternalProject_Add(ffmpeg
+@@ -78,26 +64,19 @@ ExternalProject_Add(ffmpeg
          --enable-libspeex
          --enable-libvorbis
          --enable-libbs2b
@@ -112,7 +111,6 @@ index 993bb28..abb97a5 100644
          --enable-libvpl
          --enable-libjxl
          --enable-libplacebo
-         --enable-libshaderc
 -        --enable-libzvbi
          --enable-libaribcaption
          --enable-cuda-llvm
@@ -220,5 +218,5 @@ index a2954d5..a7e44de 100644
      LOG 1
  )
 -- 
-2.52.0.windows.1
+2.45.2.windows.1
 
