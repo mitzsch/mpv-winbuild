@@ -1,0 +1,60 @@
+diff --git a/packages/ffmpeg-ntruehd.cmake b/packages/ffmpeg-ntruehd.cmake
+index 6304d06..3517d72 100644
+--- a/packages/ffmpeg-ntruehd.cmake
++++ b/packages/ffmpeg-ntruehd.cmake
+@@ -33,7 +33,6 @@ ExternalProject_Add(ffmpeg-ntruehd
+         libvpl
+         libopenmpt
+         libjxl
+-        shaderc
+         libplacebo
+         libzvbi
+         libaribcaption
+@@ -102,7 +101,6 @@ ExternalProject_Add(ffmpeg-ntruehd
+         --enable-libvpl
+         --enable-libjxl
+         --enable-libplacebo
+-        --enable-libshaderc
+         --enable-libzvbi
+         --enable-libaribcaption
+         ${ffmpeg_cuda}
+diff --git a/packages/ffmpeg-ntruehdv2.cmake b/packages/ffmpeg-ntruehdv2.cmake
+index 1e44fe3..35ddb4c 100644
+--- a/packages/ffmpeg-ntruehdv2.cmake
++++ b/packages/ffmpeg-ntruehdv2.cmake
+@@ -33,7 +33,6 @@ ExternalProject_Add(ffmpeg-ntruehdv2
+         libvpl
+         libopenmpt
+         libjxl
+-        shaderc
+         libplacebo
+         libzvbi
+         libaribcaption
+@@ -102,7 +101,6 @@ ExternalProject_Add(ffmpeg-ntruehdv2
+         --enable-libvpl
+         --enable-libjxl
+         --enable-libplacebo
+-        --enable-libshaderc
+         --enable-libzvbi
+         --enable-libaribcaption
+         ${ffmpeg_cuda}
+diff --git a/packages/ffmpeg-otruehd.cmake b/packages/ffmpeg-otruehd.cmake
+index 1925d4a..87ca37d 100644
+--- a/packages/ffmpeg-otruehd.cmake
++++ b/packages/ffmpeg-otruehd.cmake
+@@ -33,7 +33,6 @@ ExternalProject_Add(ffmpeg-otruehd
+         libvpl
+         libopenmpt
+         libjxl
+-        shaderc
+         libplacebo
+         libzvbi
+         libaribcaption
+@@ -102,7 +101,6 @@ ExternalProject_Add(ffmpeg-otruehd
+         --enable-libvpl
+         --enable-libjxl
+         --enable-libplacebo
+-        --enable-libshaderc
+         --enable-libzvbi
+         --enable-libaribcaption
+         ${ffmpeg_cuda}
