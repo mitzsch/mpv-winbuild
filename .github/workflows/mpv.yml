@@ -196,7 +196,7 @@ jobs:
       - name: Checkout toolchain
         uses: actions/checkout@v7
         with:
-          repository: shinchiro/mpv-winbuild-cmake
+          repository: mitzsch/mpv-winbuild-cmake
           path: mpv-winbuild-cmake
           fetch-depth: 0
       - name: Prepare
